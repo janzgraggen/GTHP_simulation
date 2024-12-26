@@ -1,0 +1,21 @@
+# USER INPUT FOR GTHP SIMULATION
+
+# Path parametrisation
+#Variable = Value                       [Explenation]
+Path =  4                               [Select the path among the following: "Parabol-sin-parabol: '1' ", "Triangle: '2' ", "Square: '3' ", "Straight-sin(highfreq)-straight:'4', "Straight-sin(highfreq)-straight(shallow): '5' ","Straight-sin(highfreq)-straight(short): '6' "]
+# Fluid Prarmetrisation
+Density rho =  1000                     [eg. 1000]
+Type Heat capacity Cp =      4100       [eg. 4100] 
+Flow rate =  1                          [eg. 1] 
+Initial temperature =  10               [eg. 10]
+
+# Pipe parametrisation
+Pipe radius =  0.5                      [eg. 0.5]
+Pipe thickness =  0.1                   [eg. 0.05]
+Type Heat conductivity =  110           [eg. 110] 
+
+# Settings
+Preview of the path  =  0               [Yes: '1' or No: '0']
+Show the parameters on graph =  1       [Yes: '1' or No: '0']
+Filename = result_file                  [eg. result_file; DO NOT SPECIFY FORMAT (gets added automatically) ]
+overwrite existing file = 1             [Yes: '1' or No: '0' ; overwrite existing file in case of duplicate]    
