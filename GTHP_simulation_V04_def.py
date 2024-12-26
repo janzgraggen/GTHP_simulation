@@ -129,13 +129,13 @@ def dispUI_andRun(filename):
         ## if not open GUI
         except:
             print("ERROR: input file error, get GUI input")
-            os.system("streamlit run gui_from_streamlit_V01_def.py")
-            params = read_param("GUI_parameter.csv")
+            os.system("streamlit run src/inputgui_from_streamlit_V01_def.py")
+            params = read_param("data/GUI_parameter.csv")
 
     else:
         print(os.getcwd())
-        os.system("streamlit run gui_from_streamlit_V01_def.py ")
-        params = read_param("GUI_parameter.csv")
+        os.system("streamlit run src/input/gui_from_streamlit_V01_def.py ")
+        params = read_param("data/GUI_parameter.csv")
 
     ##unwrap parameters
     path = params[0] #path
@@ -149,10 +149,10 @@ def dispUI_andRun(filename):
 
 
     ## run the simulation: (data-flow:) py -> c -> exe -> py ->plt
-    os.system(f"python3.10 pipe_param_V06_def.py {path} {Plot_preview_yes_no} ")
-    os.system(f"gcc heat_propagation_V03_def.c")
-    os.system(f"./a.out {rho} {Cp} {q} {T_initial} {r} {delta_r} {k_mat} {filename}")
-    os.system(f"python3.10 visualisation_V01_def.py {path} {display_parameter_yes_no} {r} {filename}")
+    os.system(f"PYTHONPATH=src python3.10 src/simulation/pipe_param_V06_def.py {path} {Plot_preview_yes_no} ")
+    os.system(f"gcc src/simulation/heat_propagation_V03_def.c")
+    os.system(f"./a.out {rho} {Cp} {q} {T_initial} {r} {delta_r} {k_mat} output/{filename}")
+    os.system(f"PYTHONPATH=src python3.10 src/visualisation/visualisation_V01_def.py {path} {display_parameter_yes_no} {r} output/{filename}")
 
 ##-------------------------------------- Call dispUI_andRun, ask for repetition -> repeat or end ----------------------##
 def simulate(comanlineargs):
