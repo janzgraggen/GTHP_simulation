@@ -1,0 +1,6 @@
+streamlit
+sys
+os
+math
+numpy
+matplotlib
